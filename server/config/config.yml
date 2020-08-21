@@ -1,2 +1,2 @@
-connectionstring: dbname=postgres host=localhost port=5432 user=postgres sslmode=disable
+connectionstring: dbname=postgres host=localhost port=5555 user=postgres sslmode=disable
 listenaddr: :8282

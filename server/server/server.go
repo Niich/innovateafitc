@@ -1,6 +1,7 @@
 package server
 
 import (
+	"database/sql"
 	"innovateafitc/config"
 	"innovateafitc/routes"
 
@@ -19,21 +20,21 @@ type Server struct {
 func New(cfg *config.Config) (*Server, error) {
 	boil.DebugMode = true
 
-	// db, err := sql.Open("postgres", cfg.ConnectionString)
+	db, err := sql.Open("postgres", cfg.ConnectionString)
 
-	// if err != nil {
-	// 	return nil, err
-	// }
+	if err != nil {
+		return nil, err
+	}
 
-	// if err = db.Ping(); err != nil {
-	// 	return nil, err
-	// }
+	if err = db.Ping(); err != nil {
+		return nil, err
+	}
 
-	// if err != nil {
-	// 	return nil, err
-	// }
+	if err != nil {
+		return nil, err
+	}
 
-	r, err := routes.New(cfg) //, db
+	r, err := routes.New(cfg, db) //, db
 
 	if err != nil {
 		return nil, err

@@ -7,8 +7,6 @@ import (
 	"innovateafitc/server"
 )
 
-//go:generate sqlboiler --wipe psql
-
 func main() {
 	cfg, err := config.New()
 
