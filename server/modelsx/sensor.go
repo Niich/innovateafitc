@@ -3,6 +3,7 @@ package modelsx
 import (
 	"innovateafitc/models"
 
+	"github.com/gin-gonic/gin"
 	"github.com/volatiletech/null"
 )
 
@@ -35,4 +36,12 @@ func SensorFromModelBatch(data ...*models.Sensor) SensorSlice {
 	}
 
 	return res
+}
+
+func (r *Sensor) Send(c *gin.Context) {
+	SendModelsxObj(c, r)
+}
+
+func (r *SensorSlice) Send(c *gin.Context) {
+	SendModelsxObj(c, r)
 }
